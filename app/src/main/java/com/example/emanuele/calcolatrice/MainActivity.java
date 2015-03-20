@@ -6,6 +6,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import java.util.Vector;
@@ -13,7 +14,7 @@ import java.util.Vector;
 
 public class MainActivity extends ActionBarActivity {
 
-    private TextView textView;
+    private EditText editText;
 
     private Button numpad0;
     private Button numpad1;
@@ -61,7 +62,7 @@ public class MainActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        textView = (TextView)findViewById(R.id.editText);
+        editText = (EditText)findViewById(R.id.editText);
 
         numpad0 = (Button)findViewById(R.id.button00);
         numpad1 = (Button)findViewById(R.id.button01);
@@ -86,77 +87,77 @@ public class MainActivity extends ActionBarActivity {
         numpad0Listener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                textView.setText(textView.getText() + "0");
+                editText.setText(editText.getText() + "0");
             }
         };
 
         numpad1Listener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                textView.setText(textView.getText() + "1");
+                editText.setText(editText.getText() + "1");
             }
         };
 
         numpad2Listener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                textView.setText(textView.getText() + "2");
+                editText.setText(editText.getText() + "2");
             }
         };
 
         numpad3Listener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                textView.setText(textView.getText() + "3");
+                editText.setText(editText.getText() + "3");
             }
         };
 
         numpad4Listener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                textView.setText(textView.getText() + "4");
+                editText.setText(editText.getText() + "4");
             }
         };
 
         numpad5Listener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                textView.setText(textView.getText() + "5");
+                editText.setText(editText.getText() + "5");
             }
         };
 
         numpad6Listener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                textView.setText(textView.getText() + "6");
+                editText.setText(editText.getText() + "6");
             }
         };
 
         numpad7Listener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                textView.setText(textView.getText() + "7");
+                editText.setText(editText.getText() + "7");
             }
         };
 
         numpad8Listener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                textView.setText(textView.getText() + "8");
+                editText.setText(editText.getText() + "8");
             }
         };
 
         numpad9Listener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                textView.setText(textView.getText() + "9");
+                editText.setText(editText.getText() + "9");
             }
         };
 
         CListener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                textView.setText("");
+                editText.setText("");
             }
         };
 
@@ -164,38 +165,38 @@ public class MainActivity extends ActionBarActivity {
             @Override
             public void onClick(View v) {
 
-                String text = textView.getText().toString();
+                String text = editText.getText().toString();
                 if(text.length() == 0) return;
                 text = text.substring(0, text.length() - 1);
-                textView.setText(text);
+                editText.setText(text);
             }
         };
 
         MulListener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                textView.setText(textView.getText() + "×");
+                editText.setText(editText.getText() + "×");
             }
         };
 
         DivListener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                textView.setText(textView.getText() + "÷");
+                editText.setText(editText.getText() + "÷");
             }
         };
 
         SumListener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                textView.setText(textView.getText() + "+");
+                editText.setText(editText.getText() + "+");
             }
         };
 
         DiffListener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                textView.setText(textView.getText() + "-");
+                editText.setText(editText.getText() + "-");
             }
         };
 
@@ -219,7 +220,7 @@ public class MainActivity extends ActionBarActivity {
                 Vector<EntryItem> parse = new Vector<EntryItem>();
                 int i=0;
 
-                String text = textView.getText().toString();
+                String text = editText.getText().toString();
                 if(!isNumber(text.charAt(0))) return;
 
 
