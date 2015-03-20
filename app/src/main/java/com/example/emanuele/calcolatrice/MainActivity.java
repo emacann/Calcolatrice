@@ -203,6 +203,19 @@ public class MainActivity extends ActionBarActivity {
         AnsListener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                /*FUNZIONAMENTO:
+                PARSE è una lista di EntryItem.
+                EntryItem è una clase che contiene gli attributi value (String) e type (bool)
+                    type = true => indica che quell'oggeto contiene un operatore
+                    type = false => indica che quell'oggetto contiene un numero
+                Analizzo carater per carattere tutta la stringa contenuta nell'editText e man mano che trovo
+                un numero oppure un operatore lo aggiungo alla lista PARSE.
+
+                In un secondo momento itero attraverso tutti gli elementi della lista PARSE effetuando le operazioni
+                che ci sono scritte
+                */
+
                 Vector<EntryItem> parse = new Vector<EntryItem>();
                 int i=0;
 
