@@ -81,8 +81,8 @@ public class MainActivity extends ActionBarActivity {
         operatorSum = (Button)findViewById(R.id.buttonSum);
         operatorDiff = (Button)findViewById(R.id.buttonDiff);
 
-        operatorClear = (Button)findViewById(R.id.buttonC);
-        operatorClearAll = (Button)findViewById(R.id.buttonCE);
+        operatorClear = (Button)findViewById(R.id.buttonCE);
+        operatorClearAll = (Button)findViewById(R.id.buttonC);
 
         numpad0Listener = new View.OnClickListener() {
             @Override
