@@ -22,7 +22,7 @@
     <Button
         android:layout_width="75dp"
         android:layout_height="75dp"
-        android:text="7"
+        android:text="@string/button07"
         android:id="@+id/button07"
         android:layout_below="@+id/editText"
         android:layout_alignParentStart="true"
@@ -31,7 +31,7 @@
     <Button
         android:layout_width="75dp"
         android:layout_height="75dp"
-        android:text="8"
+        android:text="@string/button08"
         android:id="@+id/button08"
         android:layout_below="@+id/editText"
         android:layout_toEndOf="@+id/button07"
@@ -40,7 +40,7 @@
     <Button
         android:layout_width="75dp"
         android:layout_height="75dp"
-        android:text="9"
+        android:text="@string/button09"
         android:id="@+id/button09"
         android:layout_above="@+id/button04"
         android:layout_toEndOf="@+id/button08"
@@ -49,7 +49,7 @@
     <Button
         android:layout_width="75dp"
         android:layout_height="75dp"
-        android:text="4"
+        android:text="@string/button04"
         android:id="@+id/button04"
         android:layout_below="@+id/button07"
         android:layout_alignParentStart="true"
@@ -58,7 +58,7 @@
     <Button
         android:layout_width="75dp"
         android:layout_height="75dp"
-        android:text="5"
+        android:text="@string/button05"
         android:id="@+id/button05"
         android:layout_alignTop="@+id/button04"
         android:layout_toEndOf="@+id/button04"
@@ -67,7 +67,7 @@
     <Button
         android:layout_width="75dp"
         android:layout_height="75dp"
-        android:text="÷"
+        android:text="@string/buttonDiv"
         android:id="@+id/buttonDiv"
         android:layout_alignBottom="@+id/button09"
         android:layout_toEndOf="@+id/button09"
@@ -76,7 +76,7 @@
     <Button
         android:layout_width="75dp"
         android:layout_height="75dp"
-        android:text="6"
+        android:text="@string/button06"
         android:id="@+id/button06"
         android:layout_alignTop="@+id/button05"
         android:layout_toEndOf="@+id/button05"
@@ -85,7 +85,7 @@
     <Button
         android:layout_width="75dp"
         android:layout_height="75dp"
-        android:text="×"
+        android:text="@string/buttonMul"
         android:id="@+id/buttonMul"
         android:layout_alignTop="@+id/button06"
         android:layout_toEndOf="@+id/button06"
@@ -94,17 +94,16 @@
     <Button
         android:layout_width="75dp"
         android:layout_height="75dp"
-        android:text="1"
+        android:text="@string/button01"
         android:id="@+id/button01"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/buttonMul"
-        android:layout_alignParentLeft="true"
         android:gravity="center_vertical|center|center_horizontal" />
 
     <Button
         android:layout_width="75dp"
         android:layout_height="75dp"
-        android:text="2"
+        android:text="@string/button02"
         android:id="@+id/button02"
         android:layout_alignBottom="@+id/button01"
         android:layout_toEndOf="@+id/button01"
@@ -113,7 +112,7 @@
     <Button
         android:layout_width="75dp"
         android:layout_height="75dp"
-        android:text="3"
+        android:text="@string/button03"
         android:id="@+id/button03"
         android:layout_alignBottom="@+id/button02"
         android:layout_toEndOf="@+id/button02"
@@ -122,7 +121,7 @@
     <Button
         android:layout_width="75dp"
         android:layout_height="75dp"
-        android:text="-"
+        android:text="@string/buttonDiff"
         android:id="@+id/buttonDiff"
         android:layout_alignBottom="@+id/button03"
         android:layout_toEndOf="@+id/button03"
@@ -131,7 +130,7 @@
     <Button
         android:layout_width="225dp"
         android:layout_height="75dp"
-        android:text="0"
+        android:text="@string/button00"
         android:id="@+id/button00"
         android:gravity="center_vertical|center|center_horizontal"
         android:layout_below="@+id/button01"
@@ -140,7 +139,7 @@
     <Button
         android:layout_width="75dp"
         android:layout_height="75dp"
-        android:text="+"
+        android:text="@string/buttonSum"
         android:id="@+id/buttonSum"
         android:gravity="center_vertical|center|center_horizontal"
         android:layout_alignBottom="@+id/button00"
@@ -149,7 +148,7 @@
     <Button
         android:layout_width="75dp"
         android:layout_height="75dp"
-        android:text="CE"
+        android:text="@string/buttonCE"
         android:id="@+id/buttonCE"
         android:gravity="center_vertical|center|center_horizontal"
         android:layout_below="@+id/button00"
@@ -158,7 +157,7 @@
     <Button
         android:layout_width="75dp"
         android:layout_height="75dp"
-        android:text="C"
+        android:text="@string/buttonC"
         android:id="@+id/buttonC"
         android:gravity="center_vertical|center|center_horizontal"
         android:layout_below="@+id/button00"
@@ -167,7 +166,7 @@
     <Button
         android:layout_width="150dp"
         android:layout_height="75dp"
-        android:text="="
+        android:text="@string/buttonAns"
         android:id="@+id/buttonAns"
         android:gravity="center_vertical|center|center_horizontal"
         android:layout_alignTop="@+id/buttonC"
