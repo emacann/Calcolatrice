@@ -173,9 +173,13 @@ public class MainActivity extends ActionBarActivity {
         CEListener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                String text = editText.getText().toString();
+                if(text.length() == 0) return;
+
                 for(int i = 0; i < 4; i++)
                 {
-                    if(editText.getText().toString().substring(editText.getText().toString().length() - 1).equals(operators[i]))//se quello che sto cancellando è un operatore allora
+                    if(text.substring(editText.getText().toString().length() - 1).equals(operators[i]))//se quello che sto cancellando è un operatore allora
                                                                                                                                 //devo anche cancellare l'ultimo numero che ho aggiunto
                     {                                                                                                           //per non contarlo due volte
                         numbers.remove(numbers.lastIndexOf(numbers.lastElement()));
@@ -183,8 +187,6 @@ public class MainActivity extends ActionBarActivity {
 
                 }
 
-                String text = editText.getText().toString();
-                if(text.length() == 0) return;
                 text = text.substring(0, text.length() - 1);
                 editText.setText(text);
             }
@@ -361,6 +363,7 @@ public class MainActivity extends ActionBarActivity {
 
                 String display = String.valueOf(ans);
                 editText.setText(display);
+                numbers.removeAllElements();
             }
             };
         /*AnsListener = new View.OnClickListener() {
