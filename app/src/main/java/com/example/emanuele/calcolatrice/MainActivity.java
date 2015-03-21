@@ -193,6 +193,7 @@ public class MainActivity extends ActionBarActivity {
         MulListener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                isLast = 0;
                 for(int i = 0; i < 4; i++) //controllo se nell'editText ci sono già degli operatori
                 {
                     buffer = editText.getText().toString().lastIndexOf(operators[i]); //ritorna un -1 se non c'è quel simbolo
@@ -216,6 +217,7 @@ public class MainActivity extends ActionBarActivity {
         DivListener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                isLast = 0;
                 for(int i = 0; i < 4; i++)
                 {
                     buffer = editText.getText().toString().lastIndexOf(operators[i]);
@@ -239,6 +241,7 @@ public class MainActivity extends ActionBarActivity {
         SumListener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                isLast = 0;
                 for(int i = 0; i < 4; i++)
                 {
                     buffer = editText.getText().toString().lastIndexOf(operators[i]);
@@ -262,6 +265,7 @@ public class MainActivity extends ActionBarActivity {
         DiffListener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                isLast = 0;
                 for(int i = 0; i < 4; i++)
                 {
                     buffer = editText.getText().toString().lastIndexOf(operators[i]);
@@ -286,6 +290,7 @@ public class MainActivity extends ActionBarActivity {
         AnsListener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                isLast = 0;
                 for(int i = 0; i < 4; i++)
                 {
                     buffer = editText.getText().toString().lastIndexOf(operators[i]);
