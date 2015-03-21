@@ -55,7 +55,12 @@ public class MainActivity extends ActionBarActivity {
     private View.OnClickListener CListener;
     private View.OnClickListener CEListener;
 
-    Vector<Integer> numbers = new Vector<Integer>();
+    private Vector<Integer> numbers = new Vector<Integer>();
+
+    private String[] operators = {"+", "-", "÷", "×"};
+
+    private int isLast = 0, buffer;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -175,40 +180,92 @@ public class MainActivity extends ActionBarActivity {
         MulListener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (editText.getText().toString().isEmpty()){
-                    numbers.add(Integer.parseInt(editText.getText().toString()));
+                for(int i = 0; i < 4; i++) //controllo se nell'edtText ci sono già degli operatori
+                {
+                    buffer = editText.getText().toString().lastIndexOf(operators[i]); //ritorna un -1 se non c'è quel simbolo
+                    if(buffer > isLast)
+                    {
+                        isLast = buffer;
+                    }
                 }
-                editText.setText(editText.getText() + "×");
+
+                if (isLast == 0) { //se non c'è nessun operatore nell'editText vuol dire che c'è un solo numero nell'editText, lo aggiungo alla lista
+                    numbers.add(Integer.parseInt(editText.getText().toString()));
+                    editText.setText(editText.getText() + "×");
+                }
+                else {
+                    numbers.add(Integer.parseInt(editText.getText().toString().substring(isLast + 1))); //sennò aggiungo il numero che si trova dopo l'ultimo operatore
+                    editText.setText(editText.getText() + "×");
+                }
             }
         };
 
         DivListener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (editText.getText().toString().isEmpty()) {
-                    numbers.add(Integer.parseInt(editText.getText().toString()));
+                for(int i = 0; i < 4; i++)
+                {
+                    buffer = editText.getText().toString().lastIndexOf(operators[i]);
+                    if(buffer > isLast)
+                    {
+                        isLast = buffer;
+                    }
                 }
-                editText.setText(editText.getText() + "÷");
+
+                if (isLast == 0) {
+                    numbers.add(Integer.parseInt(editText.getText().toString()));
+                    editText.setText(editText.getText() + "÷");
+                }
+                else {
+                    numbers.add(Integer.parseInt(editText.getText().toString().substring(isLast + 1)));
+                    editText.setText(editText.getText() + "÷");
+                }
             }
         };
 
         SumListener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (editText.getText().toString().isEmpty()) {
-                    numbers.add(Integer.parseInt(editText.getText().toString()));
+                for(int i = 0; i < 4; i++)
+                {
+                    buffer = editText.getText().toString().lastIndexOf(operators[i]);
+                    if(buffer > isLast)
+                    {
+                        isLast = buffer;
+                    }
                 }
-                editText.setText(editText.getText() + "+");
+
+                if (isLast == 0) {
+                    numbers.add(Integer.parseInt(editText.getText().toString()));
+                    editText.setText(editText.getText() + "+");
+                }
+                else {
+                    numbers.add(Integer.parseInt(editText.getText().toString().substring(isLast + 1)));
+                    editText.setText(editText.getText() + "+");
+                }
             }
         };
 
         DiffListener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (editText.getText().toString().isEmpty()) {
-                    numbers.add(Integer.parseInt(editText.getText().toString()));
+                for(int i = 0; i < 4; i++)
+                {
+                    buffer = editText.getText().toString().lastIndexOf(operators[i]);
+                    if(buffer > isLast)
+                    {
+                        isLast = buffer;
+                    }
                 }
-                editText.setText(editText.getText() + "-");
+
+                if (isLast == 0) {
+                    numbers.add(Integer.parseInt(editText.getText().toString()));
+                    editText.setText(editText.getText() + "-");
+                }
+                else {
+                    numbers.add(Integer.parseInt(editText.getText().toString().substring(isLast + 1)));
+                    editText.setText(editText.getText() + "-");
+                }
             }
         };
 
