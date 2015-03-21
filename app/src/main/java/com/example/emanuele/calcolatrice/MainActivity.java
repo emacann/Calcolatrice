@@ -196,6 +196,11 @@ public class MainActivity extends ActionBarActivity {
             @Override
             public void onClick(View v) {
                 isLast = 0;
+                if (editText.getText().toString().isEmpty()) //Se non ci sono numeri e viene premuto un operatore, non fare nulla
+                {
+                    return;
+                }
+
                 for(int i = 0; i < 4; i++) //controllo se nell'editText ci sono già degli operatori
                 {
                     buffer = editText.getText().toString().lastIndexOf(operators[i]); //ritorna un -1 se non c'è quel simbolo
@@ -204,13 +209,13 @@ public class MainActivity extends ActionBarActivity {
                         isLast = buffer;
                     }
                 }
-                if (editText.getText().toString().isEmpty()) //Se non ci sono numeri e viene premuto un operatore, non fare nulla
-                {
-                    return;
-                }
-                else if (isLast == 0) { //se non c'è nessun operatore nell'editText vuol dire che c'è un solo numero nell'editText, lo aggiungo alla lista
+
+                if (isLast == 0) { //se non c'è nessun operatore nell'editText vuol dire che c'è un solo numero nell'editText, lo aggiungo alla lista
                     numbers.add(Integer.parseInt(editText.getText().toString()));
                     editText.setText(editText.getText() + "×");
+                }
+                else if (editText.getText().toString().substring(isLast + 1).equals("")){ //Se sto per scrivere un operatore dopo un operatore dopo il primo operatore non c'è ancora nulla
+                    return;
                 }
                 else {
                     numbers.add(Integer.parseInt(editText.getText().toString().substring(isLast + 1))); //sennò aggiungo il numero che si trova dopo l'ultimo operatore
@@ -223,6 +228,12 @@ public class MainActivity extends ActionBarActivity {
             @Override
             public void onClick(View v) {
                 isLast = 0;
+
+                if (editText.getText().toString().isEmpty())
+                {
+                    return;
+                }
+
                 for(int i = 0; i < 4; i++)
                 {
                     buffer = editText.getText().toString().lastIndexOf(operators[i]);
@@ -231,13 +242,13 @@ public class MainActivity extends ActionBarActivity {
                         isLast = buffer;
                     }
                 }
-                if (editText.getText().toString().isEmpty())
-                {
-                    return;
-                }
-                else if (isLast == 0) {
+
+                if (isLast == 0) {
                     numbers.add(Integer.parseInt(editText.getText().toString()));
                     editText.setText(editText.getText() + "÷");
+                }
+                else if (editText.getText().toString().substring(isLast + 1).equals("")){
+                    return;
                 }
                 else {
                     numbers.add(Integer.parseInt(editText.getText().toString().substring(isLast + 1)));
@@ -250,6 +261,11 @@ public class MainActivity extends ActionBarActivity {
             @Override
             public void onClick(View v) {
                 isLast = 0;
+                if (editText.getText().toString().isEmpty())
+                {
+                    return;
+                }
+
                 for(int i = 0; i < 4; i++)
                 {
                     buffer = editText.getText().toString().lastIndexOf(operators[i]);
@@ -259,13 +275,12 @@ public class MainActivity extends ActionBarActivity {
                     }
                 }
 
-                if (editText.getText().toString().isEmpty())
-                {
-                    return;
-                }
-                else if (isLast == 0) {
+                if (isLast == 0) {
                     numbers.add(Integer.parseInt(editText.getText().toString()));
                     editText.setText(editText.getText() + "+");
+                }
+                else if (editText.getText().toString().substring(isLast + 1).equals("")){
+                    return;
                 }
                 else {
                     numbers.add(Integer.parseInt(editText.getText().toString().substring(isLast + 1)));
@@ -278,6 +293,11 @@ public class MainActivity extends ActionBarActivity {
             @Override
             public void onClick(View v) {
                 isLast = 0;
+                if (editText.getText().toString().isEmpty())
+                {
+                    return;
+                }
+
                 for(int i = 0; i < 4; i++)
                 {
                     buffer = editText.getText().toString().lastIndexOf(operators[i]);
@@ -287,13 +307,15 @@ public class MainActivity extends ActionBarActivity {
                     }
                 }
 
-                if (editText.getText().toString().isEmpty())
-                {
-                    return;
-                }
-                else if (isLast == 0) {
+                if (isLast == 0) {
                     numbers.add(Integer.parseInt(editText.getText().toString()));
                     editText.setText(editText.getText() + "-");
+                }
+                if (editText.getText().toString().substring(isLast + 1).equals("")){ //Se sto per scrivere un operatore dopo un operatore dopo il primo operatore non c'è ancora nulla
+                    return;
+                }
+                else if (editText.getText().toString().substring(isLast + 1).equals("")){
+                    return;
                 }
                 else {
                     numbers.add(Integer.parseInt(editText.getText().toString().substring(isLast + 1)));
@@ -320,6 +342,9 @@ public class MainActivity extends ActionBarActivity {
                     {
                         isLast = buffer;
                     }
+                }
+                if (editText.getText().toString().substring(isLast + 1).equals("")){ //Controllo che non sia stato premuto l'uguale dopo ad un operatore
+                    return;
                 }
                 numbers.add(Integer.parseInt(editText.getText().toString().substring(isLast + 1))); //Aggiungo l'ultimo numero
 
@@ -384,6 +409,7 @@ public class MainActivity extends ActionBarActivity {
                 String display = String.valueOf(ans);
                 editText.setText(display);
                 numbers.removeAllElements();
+
             }
             };
         /*AnsListener = new View.OnClickListener() {
