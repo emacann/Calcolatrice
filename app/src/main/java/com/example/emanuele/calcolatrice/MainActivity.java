@@ -299,16 +299,16 @@ public class MainActivity extends ActionBarActivity {
                         isLast = buffer;
                     }
                 }
-                numbers.add(Integer.parseInt(editText.getText().toString().substring(isLast + 1)));
+                numbers.add(Integer.parseInt(editText.getText().toString().substring(isLast + 1))); //Aggiungo l'ultimo numero
 
                 String onlyOperators = editText.getText().toString();
-                for(int i = 0; i < numberRemoving.length; i++) {
+                for(int i = 0; i < numberRemoving.length; i++) { //Rimuovo i numeri dalla stringa
                     onlyOperators = onlyOperators.replaceAll(numberRemoving[i], "");
                 }
 
                 int i = 0, sum = 0;
 
-                while(onlyOperators.length() != 0)
+                while(onlyOperators.length() != 0) //Finché non ho cancellato tutti gli operatori
                 {
                     if (i == 0) { //Se è la prima operazione devo usare i primi due numeri
                         switch (onlyOperators.charAt(0)) {
@@ -333,7 +333,7 @@ public class MainActivity extends ActionBarActivity {
                                 break;
                         }
                     }
-                    else{
+                    else{ //Sennò posso usare la somma come uno dei termini
                         switch (onlyOperators.charAt(0)) {
                             case '+':
                                 sum += (int)(numbers.get(i+1));
