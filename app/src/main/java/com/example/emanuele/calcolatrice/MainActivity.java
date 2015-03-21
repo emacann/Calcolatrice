@@ -204,8 +204,11 @@ public class MainActivity extends ActionBarActivity {
                         isLast = buffer;
                     }
                 }
-
-                if (isLast == 0) { //se non c'è nessun operatore nell'editText vuol dire che c'è un solo numero nell'editText, lo aggiungo alla lista
+                if (editText.getText().toString().isEmpty()) //Se non ci sono numeri e viene premuto un operatore, non fare nulla
+                {
+                    return;
+                }
+                else if (isLast == 0) { //se non c'è nessun operatore nell'editText vuol dire che c'è un solo numero nell'editText, lo aggiungo alla lista
                     numbers.add(Integer.parseInt(editText.getText().toString()));
                     editText.setText(editText.getText() + "×");
                 }
@@ -228,8 +231,11 @@ public class MainActivity extends ActionBarActivity {
                         isLast = buffer;
                     }
                 }
-
-                if (isLast == 0) {
+                if (editText.getText().toString().isEmpty())
+                {
+                    return;
+                }
+                else if (isLast == 0) {
                     numbers.add(Integer.parseInt(editText.getText().toString()));
                     editText.setText(editText.getText() + "÷");
                 }
@@ -253,7 +259,11 @@ public class MainActivity extends ActionBarActivity {
                     }
                 }
 
-                if (isLast == 0) {
+                if (editText.getText().toString().isEmpty())
+                {
+                    return;
+                }
+                else if (isLast == 0) {
                     numbers.add(Integer.parseInt(editText.getText().toString()));
                     editText.setText(editText.getText() + "+");
                 }
@@ -277,7 +287,11 @@ public class MainActivity extends ActionBarActivity {
                     }
                 }
 
-                if (isLast == 0) {
+                if (editText.getText().toString().isEmpty())
+                {
+                    return;
+                }
+                else if (isLast == 0) {
                     numbers.add(Integer.parseInt(editText.getText().toString()));
                     editText.setText(editText.getText() + "-");
                 }
@@ -292,6 +306,12 @@ public class MainActivity extends ActionBarActivity {
         AnsListener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                if (editText.getText().toString().isEmpty())
+                {
+                    return;
+                }
+
                 isLast = 0;
                 for(int i = 0; i < 4; i++)
                 {
