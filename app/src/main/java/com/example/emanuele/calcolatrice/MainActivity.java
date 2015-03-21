@@ -169,6 +169,15 @@ public class MainActivity extends ActionBarActivity {
         CEListener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                for(int i = 0; i < 4; i++)
+                {
+                    if(editText.getText().toString().substring(editText.getText().toString().length() - 1).equals(operators[i]))//se quello che sto cancellando è un operatore allora
+                                                                                                                                //devo anche cancellare l'ultimo numero che ho aggiunto
+                    {                                                                                                           //per non contarlo due volte
+                        numbers.remove(numbers.lastIndexOf(numbers.lastElement()));
+                    }
+
+                }
 
                 String text = editText.getText().toString();
                 if(text.length() == 0) return;
