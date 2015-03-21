@@ -60,7 +60,7 @@ public class MainActivity extends ActionBarActivity {
     private String[] operators = {"+", "-", "÷", "×"};
     private String[] numberRemoving = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "0"};
 
-    private int isLastOverall = 0, lastOccurrenceSpecificOperator;
+    private int isLastOverall = 0, currentPosition;
 
 
     @Override
@@ -166,7 +166,7 @@ public class MainActivity extends ActionBarActivity {
                 editText.setText("");
                 numbers.removeAllElements();
                 isLastOverall = 0;
-                lastOccurrenceSpecificOperator = 0;
+                currentPosition = 0;
             }
         };
 
@@ -179,9 +179,10 @@ public class MainActivity extends ActionBarActivity {
 
                 for(int i = 0; i < 4; i++)
                 {
-                    if(text.substring(editText.getText().toString().length() - 1).equals(operators[i]))//se quello che sto cancellando è un operatore allora
-                                                                                                                                //devo anche cancellare l'ultimo numero che ho aggiunto
-                    {                                                                                                           //per non contarlo due volte
+                    if(text.substring(editText.getText().toString().length() - 1)
+                            .equals(operators[i]))//se quello che sto cancellando è un operatore allora
+                                                  //devo anche cancellare l'ultimo numero che ho aggiunto
+                    {                             //per non contarlo due volte
                         numbers.remove(numbers.lastIndexOf(numbers.lastElement()));
                     }
 
@@ -203,10 +204,10 @@ public class MainActivity extends ActionBarActivity {
 
                 for(int i = 0; i < 4; i++) //controllo se nell'editText ci sono già degli operatori
                 {
-                    lastOccurrenceSpecificOperator = editText.getText().toString().lastIndexOf(operators[i]); //ritorna un -1 se non c'è quel simbolo
-                    if(lastOccurrenceSpecificOperator > isLastOverall)
+                    currentPosition = editText.getText().toString().lastIndexOf(operators[i]); //ritorna un -1 se non c'è quel simbolo
+                    if(currentPosition > isLastOverall)
                     {
-                        isLastOverall = lastOccurrenceSpecificOperator;
+                        isLastOverall = currentPosition;
                     }
                 }
 
@@ -236,10 +237,10 @@ public class MainActivity extends ActionBarActivity {
 
                 for(int i = 0; i < 4; i++)
                 {
-                    lastOccurrenceSpecificOperator = editText.getText().toString().lastIndexOf(operators[i]);
-                    if(lastOccurrenceSpecificOperator > isLastOverall)
+                    currentPosition = editText.getText().toString().lastIndexOf(operators[i]);
+                    if(currentPosition > isLastOverall)
                     {
-                        isLastOverall = lastOccurrenceSpecificOperator;
+                        isLastOverall = currentPosition;
                     }
                 }
 
@@ -268,10 +269,10 @@ public class MainActivity extends ActionBarActivity {
 
                 for(int i = 0; i < 4; i++)
                 {
-                    lastOccurrenceSpecificOperator = editText.getText().toString().lastIndexOf(operators[i]);
-                    if(lastOccurrenceSpecificOperator > isLastOverall)
+                    currentPosition = editText.getText().toString().lastIndexOf(operators[i]);
+                    if(currentPosition > isLastOverall)
                     {
-                        isLastOverall = lastOccurrenceSpecificOperator;
+                        isLastOverall = currentPosition;
                     }
                 }
 
@@ -300,10 +301,10 @@ public class MainActivity extends ActionBarActivity {
 
                 for(int i = 0; i < 4; i++)
                 {
-                    lastOccurrenceSpecificOperator = editText.getText().toString().lastIndexOf(operators[i]);
-                    if(lastOccurrenceSpecificOperator > isLastOverall)
+                    currentPosition = editText.getText().toString().lastIndexOf(operators[i]);
+                    if(currentPosition > isLastOverall)
                     {
-                        isLastOverall = lastOccurrenceSpecificOperator;
+                        isLastOverall = currentPosition;
                     }
                 }
 
@@ -311,7 +312,7 @@ public class MainActivity extends ActionBarActivity {
                     numbers.add(Integer.parseInt(editText.getText().toString()));
                     editText.setText(editText.getText() + "-");
                 }
-                if (editText.getText().toString().substring(isLastOverall + 1).equals("")){ //Se sto per scrivere un operatore dopo un operatore dopo il primo operatore non c'è ancora nulla
+                else if (editText.getText().toString().substring(isLastOverall + 1).equals("")){ //Se sto per scrivere un operatore dopo un operatore dopo il primo operatore non c'è ancora nulla
                     return;
                 }
                 else if (editText.getText().toString().substring(isLastOverall + 1).equals("")){
@@ -337,10 +338,10 @@ public class MainActivity extends ActionBarActivity {
                 isLastOverall = 0;
                 for(int i = 0; i < 4; i++)
                 {
-                   lastOccurrenceSpecificOperator = editText.getText().toString().lastIndexOf(operators[i]);
-                    if(lastOccurrenceSpecificOperator > isLastOverall)
+                   currentPosition = editText.getText().toString().lastIndexOf(operators[i]);
+                    if(currentPosition > isLastOverall)
                     {
-                        isLastOverall = lastOccurrenceSpecificOperator;
+                        isLastOverall = currentPosition;
                     }
                 }
                 if (editText.getText().toString().substring(isLastOverall + 1).equals("")){ //Controllo che non sia stato premuto l'uguale dopo ad un operatore
