@@ -58,6 +58,7 @@ public class MainActivity extends ActionBarActivity {
     private Vector<Integer> numbers = new Vector<Integer>();
 
     private String[] operators = {"+", "-", "÷", "×"};
+    private String[] numberRemoving = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "0"};
 
     private int isLast = 0, buffer;
 
@@ -163,7 +164,7 @@ public class MainActivity extends ActionBarActivity {
             @Override
             public void onClick(View v) {
                 editText.setText("");
-                numbers.clear(); 
+                numbers.clear();
             }
         };
 
@@ -283,8 +284,83 @@ public class MainActivity extends ActionBarActivity {
         AnsListener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                for(int i = 0; i < 4; i++)
+                {
+                    buffer = editText.getText().toString().lastIndexOf(operators[i]);
+                    if(buffer > isLast)
+                    {
+                        isLast = buffer;
+                    }
+                }
+                numbers.add(Integer.parseInt(editText.getText().toString().substring(isLast + 1)));
 
-                /*FUNZIONAMENTO:
+                String onlyOperators = editText.getText().toString();
+                for(int i = 0; i < numberRemoving.length; i++) {
+                    onlyOperators = onlyOperators.replaceAll(numberRemoving[i], "");
+                }
+
+                int i = 0, sum = 0;
+
+                while(onlyOperators.length() != 0)
+                {
+                    if (i == 0) { //Se è la prima operazione devo usare i primi due numeri
+                        switch (onlyOperators.charAt(0)) {
+                            case '+':
+                                sum = (int)(numbers.get(i) + numbers.get(i+1));
+                                onlyOperators = onlyOperators.substring(1);
+                                break;
+
+                            case '-':
+                                sum = (int)(numbers.get(i) - numbers.get(i+1));
+                                onlyOperators = onlyOperators.substring(1);
+                                break;
+
+                            case '×':
+                                sum = (int)(numbers.get(i) * numbers.get(i+1));
+                                onlyOperators = onlyOperators.substring(1);
+                                break;
+
+                            case '÷':
+                                sum = (int)(numbers.get(i) / numbers.get(i+1));
+                                onlyOperators = onlyOperators.substring(1);
+                                break;
+                        }
+                    }
+                    else{
+                        switch (onlyOperators.charAt(0)) {
+                            case '+':
+                                sum += (int)(numbers.get(i+1));
+                                onlyOperators = onlyOperators.substring(1);
+                                break;
+
+                            case '-':
+                                sum -= (int)(numbers.get(i+1));
+                                onlyOperators = onlyOperators.substring(1);
+                                break;
+
+                            case '×':
+                                sum *= (int)(numbers.get(i+1));
+                                onlyOperators = onlyOperators.substring(1);
+                                break;
+
+                            case '÷':
+                                sum /= (int)(numbers.get(i+1));
+                                onlyOperators = onlyOperators.substring(1);
+                                break;
+                        }
+                    }
+                    i++;
+                }
+
+                String display = String.valueOf(sum);
+                editText.setText(display);
+            }
+            };
+        /*AnsListener = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                *//*FUNZIONAMENTO:
                 PARSE è una lista di EntryItem.
                 EntryItem è una clase che contiene gli attributi value (String) e type (bool)
                     type = true => indica che quell'oggeto contiene un operatore
@@ -294,7 +370,7 @@ public class MainActivity extends ActionBarActivity {
 
                 In un secondo momento itero attraverso tutti gli elementi della lista PARSE effetuando le operazioni
                 che ci sono scritte
-                */
+                *//*
 
                 Vector<EntryItem> parse = new Vector<EntryItem>();
                 int i=0;
@@ -353,7 +429,7 @@ public class MainActivity extends ActionBarActivity {
                 }
 
             }
-        };
+        };*/
 
         numpad0.setOnClickListener(numpad0Listener);
         numpad1.setOnClickListener(numpad1Listener);
@@ -373,6 +449,8 @@ public class MainActivity extends ActionBarActivity {
 
         operatorClear.setOnClickListener(CEListener);
         operatorClearAll.setOnClickListener(CListener);
+
+        operatorAns.setOnClickListener(AnsListener);
     }
 
 
