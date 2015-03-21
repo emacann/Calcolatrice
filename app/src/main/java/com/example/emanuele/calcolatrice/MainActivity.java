@@ -313,22 +313,22 @@ public class MainActivity extends ActionBarActivity {
                     if (i == 0) { //Se è la prima operazione devo usare i primi due numeri
                         switch (onlyOperators.charAt(0)) {
                             case '+':
-                                sum = (int)(numbers.get(i) + numbers.get(i+1));
+                                sum = (numbers.get(i) + numbers.get(i+1));
                                 onlyOperators = onlyOperators.substring(1);
                                 break;
 
                             case '-':
-                                sum = (int)(numbers.get(i) - numbers.get(i+1));
+                                sum = (numbers.get(i) - numbers.get(i+1));
                                 onlyOperators = onlyOperators.substring(1);
                                 break;
 
                             case '×':
-                                sum = (int)(numbers.get(i) * numbers.get(i+1));
+                                sum = (numbers.get(i) * numbers.get(i+1));
                                 onlyOperators = onlyOperators.substring(1);
                                 break;
 
                             case '÷':
-                                sum = (int)(numbers.get(i) / numbers.get(i+1));
+                                sum = (numbers.get(i) / numbers.get(i+1));
                                 onlyOperators = onlyOperators.substring(1);
                                 break;
                         }
@@ -336,22 +336,22 @@ public class MainActivity extends ActionBarActivity {
                     else{ //Sennò posso usare la somma come uno dei termini
                         switch (onlyOperators.charAt(0)) {
                             case '+':
-                                sum += (int)(numbers.get(i+1));
+                                sum += (numbers.get(i+1));
                                 onlyOperators = onlyOperators.substring(1);
                                 break;
 
                             case '-':
-                                sum -= (int)(numbers.get(i+1));
+                                sum -= (numbers.get(i+1));
                                 onlyOperators = onlyOperators.substring(1);
                                 break;
 
                             case '×':
-                                sum *= (int)(numbers.get(i+1));
+                                sum *= (numbers.get(i+1));
                                 onlyOperators = onlyOperators.substring(1);
                                 break;
 
                             case '÷':
-                                sum /= (int)(numbers.get(i+1));
+                                sum /= (numbers.get(i+1));
                                 onlyOperators = onlyOperators.substring(1);
                                 break;
                         }
