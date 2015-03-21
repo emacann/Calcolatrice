@@ -164,7 +164,9 @@ public class MainActivity extends ActionBarActivity {
             @Override
             public void onClick(View v) {
                 editText.setText("");
-                numbers.clear();
+                numbers.removeAllElements();
+                isLast = 0;
+                buffer = 0;
             }
         };
 
@@ -191,7 +193,7 @@ public class MainActivity extends ActionBarActivity {
         MulListener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                for(int i = 0; i < 4; i++) //controllo se nell'edtText ci sono già degli operatori
+                for(int i = 0; i < 4; i++) //controllo se nell'editText ci sono già degli operatori
                 {
                     buffer = editText.getText().toString().lastIndexOf(operators[i]); //ritorna un -1 se non c'è quel simbolo
                     if(buffer > isLast)
