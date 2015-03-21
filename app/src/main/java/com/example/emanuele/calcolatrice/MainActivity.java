@@ -55,6 +55,7 @@ public class MainActivity extends ActionBarActivity {
     private View.OnClickListener CListener;
     private View.OnClickListener CEListener;
 
+    Vector<Integer> numbers = new Vector<Integer>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -174,6 +175,9 @@ public class MainActivity extends ActionBarActivity {
         MulListener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (editText.getText().toString().isEmpty()){
+                    numbers.add(Integer.parseInt(editText.getText().toString()));
+                }
                 editText.setText(editText.getText() + "×");
             }
         };
@@ -181,6 +185,9 @@ public class MainActivity extends ActionBarActivity {
         DivListener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (editText.getText().toString().isEmpty()) {
+                    numbers.add(Integer.parseInt(editText.getText().toString()));
+                }
                 editText.setText(editText.getText() + "÷");
             }
         };
@@ -188,6 +195,9 @@ public class MainActivity extends ActionBarActivity {
         SumListener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (editText.getText().toString().isEmpty()) {
+                    numbers.add(Integer.parseInt(editText.getText().toString()));
+                }
                 editText.setText(editText.getText() + "+");
             }
         };
@@ -195,6 +205,9 @@ public class MainActivity extends ActionBarActivity {
         DiffListener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (editText.getText().toString().isEmpty()) {
+                    numbers.add(Integer.parseInt(editText.getText().toString()));
+                }
                 editText.setText(editText.getText() + "-");
             }
         };
